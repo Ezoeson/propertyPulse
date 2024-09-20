@@ -39,14 +39,7 @@ const PropertyIdPage = () => {
       fetchPropertyData();
     }
   }, [id, property]);
-
-  if (!property && !loading) {
-    return (
-      <h1 className='terxt-center font-bold text-2xl mt-10'>
-        Propety Not Found
-      </h1>
-    );
-  }
+  console.log(property);
 
   return (
     <>
