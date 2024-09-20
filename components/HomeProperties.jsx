@@ -1,13 +1,39 @@
+'use client';
+
 import PropertyCard from '@/components/PropertyCard';
 import Link from 'next/link';
-import { fetchProperties } from '@/utils/requests';
+import { useEffect, useState } from 'react';
+import Spinner from './Spinner';
 
-const HomeProperties = async () => {
-  const data = await fetchProperties();
+const HomeProperties = () => {
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const recentProperties = data.properties
+  useEffect(() => {
+    const fetchRecentProperties = async () => {
+      try {
+        const res = await fetch('/api/properties');
+
+        if (!res.ok) {
+          console.log('Failed to fetch');
+        }
+        const data = await res.json();
+
+        setProperties(data.properties);
+      } catch (error) {
+        console.log('failed');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRecentProperties();
+  }, []);
+  const recentProperties = properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
+
+  if (loading) return <Spinner loading={loading} />;
+
   return (
     <>
       <section className='px-4 py-6'>
@@ -19,7 +45,7 @@ const HomeProperties = async () => {
             {recentProperties === 0 ? (
               <p>No Properties Found</p>
             ) : (
-              recentProperties.map((property) => (
+              recentProperties?.map((property) => (
                 <PropertyCard key={property._id} property={property} />
               ))
             )}

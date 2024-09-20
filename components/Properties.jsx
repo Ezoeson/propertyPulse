@@ -23,6 +23,7 @@ const Properties = () => {
           throw new Error('Failed to fetch data');
         }
         const data = await res.json();
+      
         setProperties(data?.properties);
         setTotalItems(data.total);
       } catch (error) {
@@ -33,6 +34,7 @@ const Properties = () => {
     };
     fetchProperties();
   }, [page, pageSize]);
+  
 
   const handlePageChange = (newPage) => {
     setPage(newPage);
