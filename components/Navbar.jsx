@@ -20,6 +20,8 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
+  
+
   useEffect(() => {
     const setAuthProviders = async () => {
       const res = await getProviders();

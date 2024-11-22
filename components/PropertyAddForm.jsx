@@ -2,13 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-/**
- * @function PropertyAddForm
- * @description A form component for adding a property to the database.
- * @returns {JSX.Element} A form element with input fields for property information, rates, and images.
- * @example
- * <PropertyAddForm />
- */
+
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState(false);
   const [fields, setFields] = useState({
@@ -42,10 +36,7 @@ const PropertyAddForm = () => {
     setMounted(true);
   }, []);
 
-  /**
-   * The `handleChange` function in JavaScript React efficiently updates nested or non-nested properties
-   * in the state based on the input event.
-   */
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     // check if nested property
@@ -123,7 +114,7 @@ const PropertyAddForm = () => {
         method='POST'
         encType='multipart/form-data'
       >
-        <h2 className='text-3xl text-center font-semibold mb-6'>
+        <h2 className='text-3xl text-center font-semibold mb-6   '>
           Add Property
         </h2>
 

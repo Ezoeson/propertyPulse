@@ -23,7 +23,7 @@ const PropertyCard = ({ property }) => {
       return `${rates.nightly.toLocaleString()}/night`;
     }
   };
- 
+
   return (
     <div className='rounded-xl shadow-md relative hover:translate-y-7 duration-500'>
       <Image
@@ -40,7 +40,7 @@ const PropertyCard = ({ property }) => {
           <h3 className='text-xl font-bold'>{property.name}</h3>
         </div>
         <h3 className='absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right'>
-          ${getRatedisplay()}
+          {getRatedisplay()} {''}Ariary
         </h3>
 
         <div className='flex justify-center gap-4 text-gray-500 mb-4'>

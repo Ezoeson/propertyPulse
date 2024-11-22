@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Spinner from './Spinner';
 
+
 const HomeProperties = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
